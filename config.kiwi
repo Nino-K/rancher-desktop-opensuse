@@ -23,25 +23,18 @@
   <preferences profiles="wsl">
     <type image="tbz" />
   </preferences>
-  <repository type="rpm-md" imageinclude="true" alias="tumbleweed">
-    <!--
-      Use factory, as Leap 15.6 systemd is too old to work correctly on WSL
-      (We require at least 255.7); see:
-      https://github.com/systemd/systemd/pull/32534
-    -->
-    <source path="obs://openSUSE:Factory/standard" />
+  <repository type="rpm-md" imageinclude="true" alias="leap-16.0-oss">
+    <!-- Primary openSUSE Leap 16.0 repository -->
+    <source path="https://download.opensuse.org/distribution/leap/16.0/repo/oss/" />
   </repository>
-  <repository type="rpm-md" imageinclude="true" alias="tumbleweed-aarch64" profiles="lima">
-    <!-- The lima image may need aarch64 ports (for mac M1) -->
-    <source path="http://download.opensuse.org/ports/aarch64/tumbleweed/repo/oss/" />
-  </repository>
-  <repository type="rpm-md" imageinclude="false" alias="rd-openresty-packaging" repository_gpgcheck="false">
+  <repository type="rpm-md" imageinclude="false" alias="rd-openresty-packaging"
+    repository_gpgcheck="false">
     <!-- Require openresty -->
     <source path="https://rancher-sandbox.github.io/openresty-packaging/" />
   </repository>
   <repository type="rpm-md" imageinclude="false" alias="devel-languages-go" priority="150">
     <!-- For mkcert -->
-    <source path="obs://devel:languages:go/openSUSE_Factory" />
+    <source path="obs://devel:languages:go/16.0" />
   </repository>
   <repository type="rpm-md" imageinclude="false" alias="devel-languages-go-aarch64" profiles="lima"
     priority="150">
